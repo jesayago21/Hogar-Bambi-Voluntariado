@@ -1,0 +1,40 @@
+const { createCrudRouter } = require('../lib/crudFactory');
+
+module.exports = createCrudRouter({
+  table: 'labor_social',
+  idColumn: 'labor_social_id',
+  entidad: 'labor_social',
+  importSchemaKey: 'labor_social',
+  uniquePerPersona: true,
+  duplicateMessage: 'Esta cédula ya tiene registro de Labor Social; edítalo',
+  selectExtra: `
+    m.colegio,
+    m.nivel,
+    m.carrera,
+    m.expediente,
+    m.anio,
+    m.estatus,
+    m.fecha_inicio,
+    m.fecha_culminacion,
+    m.representante,
+    m.telefono_representante,
+    m.email_representante,
+    m.actividad_apoyo,
+    m.fecha_carta_culminacion
+  `,
+  insertColumns: [
+    'colegio',
+    'nivel',
+    'carrera',
+    'expediente',
+    'anio',
+    'estatus',
+    'fecha_inicio',
+    'fecha_culminacion',
+    'representante',
+    'telefono_representante',
+    'email_representante',
+    'actividad_apoyo',
+    'fecha_carta_culminacion',
+  ],
+});

@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:17
+    container_name: voluntariado_db_local
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: localdev
+      POSTGRES_DB: voluntariado_hogar_bambi
+    ports:
+      - "5434:5432"
+    volumes:
+      - voluntariado_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d voluntariado_hogar_bambi"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  voluntariado_pgdata:

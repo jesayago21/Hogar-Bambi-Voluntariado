@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "migrate": "node db/migrations/run.js",
+    "import": "node scripts/import/run-all.js",
+    "import:dry": "node scripts/import/run-all.js --dry-run",
+    "import:all": "node scripts/import/run-all.js --all-modules",
+    "import:purge-students": "node scripts/import/purge-student-imports.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.5.0",
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0",
+    "multer": "^2.3.0",
+    "pg": "^8.16.0"
+  }
+}
